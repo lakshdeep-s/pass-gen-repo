@@ -5,20 +5,22 @@ def relaunchApp():
     if runAgain == 'y':
         passwordGenerator()
     elif runAgain == 'n':
-        print("See you later then !!")
+        print("\nSee you later then !!")
+    else:
+        print("\nSorry I dont understand...Try again maybe...\n")
+        relaunchApp()
 
 def welcomeMessage():
-    print("Hello There welcome to the password generator !!")
-    print("This Generator will generate a secure password using python !!")
+    print("----------------------\nHello There welcome to the password generator !!")
+    print("This Generator will generate a secure password using python !!\n----------------------")
 
 
+welcomeMessage()
 def passwordGenerator():
-    # welcome messages
-    welcomeMessage()
-    # generate password
+    
     generatedPassword = Generator()
     
-    print(f"Your Password is : {generatedPassword}")
+    print(f"\n---*---*---*---*--\nYour Password is : {generatedPassword}\n---*---*---*---*--")
         
     relaunchApp() 
 

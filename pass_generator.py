@@ -1,41 +1,37 @@
 import random
 import os
-from stat import S_IREAD
 
-# making random.txt file readonly
-os.chmod("random_text.txt", S_IREAD)
-
-def idelSpcCharacters():
-    charList = ['!','*','#','_','^','%','&','@','$']
-    spcString = str()
-    iterVar = 0
-    while iterVar < 4:
-        spcString += str(random.choice(charList))
-        iterVar+=1
-    return spcString
+def passSpcCharacters():
+    char_list = ['!','*','#','_','^','%','&','@','$']
+    spc_string = str()
+    iter_var = 0
+    while iter_var < 4:
+        spc_string += str(random.choice(char_list))
+        iter_var+=1
+    return spc_string
        
-def  idealBase():
+def  passBaseString():
     with open('random_text.txt','r') as file:
         allText = file.read()
         words = list(map(str, allText.split()))
         
-    baseWord = random.choice(words)
-    if len(baseWord) > 4:
-        ''.join(random.sample(baseWord, len(baseWord)))
-        baseWord = baseWord[0:4]
-        ''.join(random.choice((str.upper, str.lower))(char) for char in baseWord)
-        return baseWord
-    elif len(baseWord) < 4:
-        idealBase()
+    base_string = random.choice(words)
+    if len(base_string) > 4:
+        ''.join(random.sample(base_string, len(base_string)))
+        base_string = base_string[0:4]
+        ''.join(random.choice((str.upper, str.lower))(char) for char in base_string)
+        return base_string
+    elif len(base_string) < 4:
+        passBaseString()
     
-def idealRandRange():
+def passNumElements():
     idealNum = random.randint(12345,98706)
     return idealNum
         
 def Generator():
-    baseWord = idealBase()
-    baseNum = str(idealRandRange())
-    baseSpcChars = idelSpcCharacters()
+    baseWord = passBaseString()
+    baseNum = str(passNumElements())
+    baseSpcChars = passSpcCharacters()
     
     initPassword = baseWord + baseNum + baseSpcChars
     
