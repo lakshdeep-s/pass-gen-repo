@@ -12,7 +12,7 @@ def relaunchApp():
 
 def welcomeMessage():
     print("----------------------\nHello There welcome to the password generator !!")
-    print("This Generator will generate a secure password using python !!\n----------------------")
+    print("This Generator will generate a secure password using python !!\n----------------------\n")
 
 
 welcomeMessage()
